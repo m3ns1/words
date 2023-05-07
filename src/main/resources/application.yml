@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/teacher
+    username: postgres
+    password: postgres
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    database: postgresql
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+server:
+  address: 0.0.0.0
+debug: true

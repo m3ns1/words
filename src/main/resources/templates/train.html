@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<th:block th:insert="~{common :: common-header (title='Training')}"/>
+<th:block th:insert="~{common :: bootstrap-css}"/>
+<body>
+<div class="container">
+    <h1>Training: English to German</h1>
+    <input type="hidden" id="id" th:field="${word.id}">
+    <div class="card" style="width: 18rem;"
+         th:classappend="${reveal ? 'text-bg-success' : 'text-bg-primary'}">
+        <div class="card-header">
+            <div class="row">
+                <div class="col">
+                    <h5 class="card-title" th:text="${word.english}"></h5>
+                </div>
+                <div class="col text-end">
+                    <a th:href="@{/reveal}" class="btn btn-primary" th:if="${!reveal}">Flip</a>
+                    <a th:href="@{/next}" class="btn btn-primary" th:if="${reveal}">Next word</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" th:if="${reveal}">
+            <blockquote class="blockquote">
+                <h5 class="card-title" th:text="${word.german}"></h5>
+            </blockquote>
+            <p class="blockquote-footer" th:text="${word.context}" th:if="${word.context != null}"></p>
+        </div>
+        <div class="card-body" th:if="${!reveal}">
+            <blockquote class="blockquote"></blockquote>
+            <p class="blockquote-footer">Do you know the german word? Click «Flip» to check if you're right.</p>
+        </div>
+    </div>
+
+    <p></p>
+    <a class="btn btn-dark" th:href="@{/}" th:text="Finish"></a>
+
+</div>
+<th:block th:insert="~{common :: footer}"/>
+</body>
+</html>

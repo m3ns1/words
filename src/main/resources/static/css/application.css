@@ -1,0 +1,10 @@
+body {
+    padding-top: 2em;
+}
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
+.text-bg-primary .blockquote-footer, .text-bg-success .blockquote-footer {
+    color: white;
+}

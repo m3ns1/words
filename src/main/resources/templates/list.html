@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<th:block th:insert="~{common :: common-header (title='Words')}"/>
+<th:block th:insert="~{common :: bootstrap-css}"/>
+<body>
+<div class="container">
+    <h1>Words</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>English</th>
+            <th>German</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="word : ${words}" th:attr="data-bs-title=${word.context}" data-bs-toggle="tooltip">
+            <td th:text="${word.english}"></td>
+            <td th:text="${word.german}"></td>
+            <td class="text-nowrap">
+                <a th:href="@{/edit(id=${word.id})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete(id=${word.id})}" class="btn btn-secondary">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="btn-group">
+        <a href="/add" class="btn btn-primary">Add Word</a>
+        <a href="/start" class="btn btn-primary">Begin training</a>
+    </div>
+
+</div>
+
+<th:block th:insert="~{common :: footer}"/>
+
+</body>
+</html>

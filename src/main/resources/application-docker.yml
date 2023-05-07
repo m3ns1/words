@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/words_db
+    username: postgres
+    password: postgres
+
+debug: false

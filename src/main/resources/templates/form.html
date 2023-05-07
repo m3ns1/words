@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<th:block th:insert="~{common :: common-header (title='Add Word')}"/>
+<th:block th:insert="~{common :: bootstrap-css}"/>
+<body>
+<div class="container">
+    <h1>Translation</h1>
+    <form action="#" th:action="@{/save}" th:object="${word}" method="post">
+        <input type="hidden" id="id" th:field="*{id}">
+        <input type="hidden" th:field="*{version}">
+        <div class="mb-3">
+            <label for="english" class="form-label">English</label>
+            <input type="text" class="form-control" id="english" placeholder="Bird" th:field="*{english}">
+        </div>
+        <div class="mb-3">
+            <label for="german" class="form-label">German</label>
+            <input type="text" class="form-control" id="german" placeholder="Vogel" th:field="*{german}">
+        </div>
+        <div class="mb-3">
+            <label for="context" class="form-label">Context</label>
+            <textarea id="context" class="form-control" th:field="*{context}"></textarea>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary" value="Submit">Save</button>
+            <a th:href="@{/}" type="button" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+<th:block th:insert="~{common :: footer}"/>
+</body>
+</html>
