@@ -25,12 +25,11 @@
     </table>
     <div class="btn-group">
         <a href="/add" class="btn btn-primary">Add Word</a>
-        <a href="/start" class="btn btn-primary">Begin training</a>
+        <a th:href="@{/start(mode=ende)}" class="btn btn-primary">English &gt; German</a>
+        <a th:href="@{/start(mode=deen)}" class="btn btn-primary">German &gt; English</a>
     </div>
 
 </div>
 
 <th:block th:insert="~{common :: footer}"/>
-
 </body>
-</html>
