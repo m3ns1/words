@@ -30,6 +30,13 @@ class WordService(
         }
     }
 
+    fun lastMonthFilter(): Predicate<Word> {
+        return Predicate<Word> {
+            val now = LocalDateTime.now(clock)
+            it.version!!.toLocalDateTime().plusMonths(1).isAfter(now)
+        }
+    }
+
     fun getById(id: String) = wordRepository.findById(id).orElseThrow { IllegalArgumentException("Word $id not found") }
 
     fun delete(id: String) = wordRepository.deleteById(id)

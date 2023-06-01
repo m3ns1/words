@@ -23,7 +23,7 @@ class TrainerController(
         training.words.clear()
         training.position = 0
         training.mode = mode
-        training.words.addAll(wordService.list(wordService.sameMonthFilter()).shuffled())
+        training.words.addAll(wordService.list(wordService.lastMonthFilter()).shuffled())
         return train(model)
     }
 
